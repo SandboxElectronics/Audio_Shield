@@ -11,7 +11,7 @@ Installation Instruction (For Arduino IDE version 1.0.5 and above):
 
 4. Return to the Sketch -> Import Library menu. You should now see the library at the bottom of the drop-down menu. It is ready to be used in your sketch.
 
-5. As this library have a dependency on another Sandbox Electronics Library - UART_Bridge. The same steps 1-4 should be used to install that library if it is not already installed. The library can be downloaded at https://github.com/SandboxElectronics/UART_Bridge/blob/master/UART_Bridge.zip?raw=true.
+5. As this library has a dependency on another Sandbox Electronics Library - UART_Bridge. The same steps 1-4 should be used to install that library if it is not already installed. The library can be downloaded at https://github.com/SandboxElectronics/UART_Bridge/blob/master/UART_Bridge.zip?raw=true.
 
 The installed library should be under:
  - My Documents\Arduino\libraries\ (on Windows)
