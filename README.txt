@@ -1,6 +1,8 @@
 Arduino Library for Sandbox Electronics MP3 Audio Shield [SLD-000022]
 =====================================================================
 
+This shield is available at http://sandboxelectronics.com/?product=mp3-audio-shield-with-dtmf-support
+
 Installation Instruction (For Arduino IDE version 1.0.5 and above):
 
 1. Download the library as an Arduino IDE compatible zip file at https://github.com/SandboxElectronics/Audio_Shield/blob/master/Audio_Shield.zip?raw=true. (Do not unzip it. leave it as is)
