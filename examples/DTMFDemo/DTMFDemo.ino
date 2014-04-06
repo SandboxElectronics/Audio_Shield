@@ -113,7 +113,7 @@ void setup()
                                                   //                                        AUX R - 2.5V (if audio channel selection == 0) 
                                                   //                                        AUX L - SIM900 Audio Output
 
-	if (i2cuart.ping() !=1) {
+	if (i2cuart.ping() !=1)  {
 		Serial.println("Error1: Can not connnect to SC16IS750");
 		Serial.println("Please check the connectivity of SDA-A4, and SCL-A5 if you are a Uno Board.");
 		Serial.println("You may need to connect A4 to SDA and A5 to SCL with wires if your board does not have SCL and SDA broke out.");
