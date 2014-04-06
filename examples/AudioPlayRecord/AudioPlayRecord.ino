@@ -67,6 +67,17 @@ void setup()
     Serial.println("FINISH ------------------------ Finish recording");
     Serial.println("================================================");    
 
+	if (i2cuart.ping() !=1) {
+		Serial.println("Error1: Can not connnect to SC16IS750");
+		Serial.println("Please check the connectivity of SDA-A4, and SCL-A5 if you are a Uno Board.");
+		Serial.println("You may need to connect A4 to SDA and A5 to SCL with wires if your board does not have SCL and SDA broke out.");
+		while(1);
+	} else {
+		// Serial.println("Connected to SC16IS750");
+       
+	} 	
+	
+	
 };
 
 void loop() 
