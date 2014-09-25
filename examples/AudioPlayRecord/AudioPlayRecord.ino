@@ -25,7 +25,7 @@ Please keep the above information when you use this code in your project.
 */
 
 
-
+#include <SPI.h>
 #include <Wire.h>
 #include <SC16IS750.h>
 #include <string.h>

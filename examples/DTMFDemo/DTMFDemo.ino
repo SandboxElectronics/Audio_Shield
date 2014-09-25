@@ -25,7 +25,7 @@ CC BY-NC-SA 3.0
 Please keep the above information when you use this code in your project. 
 */
 
-
+#include <SPI.h>
 #include "SIM900.h"
 #include <SoftwareSerial.h>
 #include "sms.h"
