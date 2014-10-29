@@ -103,7 +103,8 @@ void SerialReadCommand()
 
     char command_buffer[100];
     uint8_t index = 0;
-  
+    
+	command_buffer[0] = 0;
     while((Serial.available() > 0) && (index<99)) {
         command_buffer[index++] = Serial.read();
 	delay(50);
@@ -116,52 +117,77 @@ void SerialReadCommand()
 
 		if (i2cuart.ping() !=1) {
 			Serial.println("Error1: Can not connnect to SC16IS750");
-			Serial.println("Please check the connectivity of SDA-A4, and SCL-A5 if you are a Uno Board.");
+			Serial.println("Please check the connectivity of SDA-A4, and SCL-A5 if you are using a Uno Board.");
 			Serial.println("You may need to connect A4 to SDA and A5 to SCL with wires if your board does not have SCL and SDA broke out.");
-			while(1);
+			return;
+			//while(1);
 		} else {
 			// Serial.println("Connected to SC16IS750");
        
 		} 
 		
-        myaudioshield.play("1","TONES");
+		if ( myaudioshield.lookup("1","TONES") != 0) {
+	        Serial.println("Error3: Card read failed!");
+	    }
+		
+        if ( myaudioshield.play("1","TONES") != 0) {
+		    Serial.println("Error4: Can not play TONE 1");
+		}
         delay(1200);
         if (DTMFGetKey() != DTMF_KEY_1) {
             Serial.println("Error2: DTMF decoding error!");
+			Serial.println("Failed to decode 1");
             Serial.println("Please check the connectivity of the lower pink and lower lime connector");
-            while(1);
+			return;
+            
         }
         
-        myaudioshield.play("2","TONES");
+        if ( myaudioshield.play("2","TONES") != 0) {
+		    Serial.println("Error4: Can not play TONE 2");
+		}
         delay(1200);
         if (DTMFGetKey() != DTMF_KEY_2) {
             Serial.println("Error2: DTMF decoding error!");
+			Serial.println("Failed to decode 2");
             Serial.println("Please check the connectivity of the lower pink and lower lime connector");
-            while(1);
+			return;
+            
         }
 
-        myaudioshield.play("4","TONES");
+        if (myaudioshield.play("4","TONES") != 0) {
+		    Serial.println("Error4: Can not play TONE 4");
+		}
         delay(1200);
         if (DTMFGetKey() != DTMF_KEY_4) {
             Serial.println("Error2: DTMF decoding error!");
+			Serial.println("Failed to decode 4");
             Serial.println("Please check the connectivity of the lower pink and lower lime connector");
-            while(1);
+			return;
+            
         }        
         
-        myaudioshield.play("8","TONES");
+        if (myaudioshield.play("8","TONES") != 0){
+		    Serial.println("Error4: Can not play TONE 8");
+		}
         delay(1200);
         if (DTMFGetKey() != DTMF_KEY_8) {
             Serial.println("Error2: DTMF decoding error!");
+			Serial.println("Failed to decode 8");
             Serial.println("Please check the connectivity of the lower pink and lower lime connector");
-            while(1);
+			return;
+            
         }
 
-        myaudioshield.play("D","TONES");
+        if (myaudioshield.play("D","TONES") != 0){
+		    Serial.println("Error4: Can not play TONE D");
+		}
         delay(1200);
         if (DTMFGetKey() != DTMF_KEY_D) {
             Serial.println("Error2: DTMF decoding error!");
+			Serial.println("Failed to decode D");
             Serial.println("Please check the connectivity of the lower pink and lower lime connector");
-            while(1);
+			return;
+            
         }
         
         Serial.println("The shield is OK");

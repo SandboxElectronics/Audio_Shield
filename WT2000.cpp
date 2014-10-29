@@ -413,7 +413,8 @@ uint8_t WT2000::remove(char *file)
     
     sendcommand(WT2000_COMMAND_DELETE_NAME,name_length+3,(uint8_t*)file); 
     return receivereply(1,(char *)0, 1000);   
-}
+
+ }
 
 uint8_t WT2000::remove(char *file, char *folder)
 {
@@ -421,6 +422,7 @@ uint8_t WT2000::remove(char *file, char *folder)
     uint8_t buffer[9];
     uint8_t i;
     uint8_t name_length;
+	uint8_t result;
     name_length = strlen(file);
     name_length %= (WT2000_MAXIMUM_FILE_NAME_LENGTH+1);
     
@@ -432,7 +434,8 @@ uint8_t WT2000::remove(char *file, char *folder)
         buffer[5+i] = file[i];
     }
     sendcommand(WT2000_COMMAND_DELETE_NAME_FOLDER,8+name_length, buffer); 
-    return receivereply(1,(char *)0, 1000);   
+    return (receivereply(1,(char *)0, 1000));
+
 }
 
 void WT2000::sendcommand(uint8_t opcode, uint8_t data_length, uint8_t *buf)
@@ -468,7 +471,7 @@ uint8_t WT2000::receivereply(uint8_t data_length, char *buf,uint16_t timeout)
 
     _myserial->setTimeout(timeout);
     if ( _myserial->readBytes(&op_code,1) == 0) {
-        return 0;
+        return 0xff;
     } else {
         count++;
     }
