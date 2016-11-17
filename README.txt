@@ -5,7 +5,8 @@ This shield is available at http://sandboxelectronics.com/?product=mp3-audio-shi
 
 Installation Instruction (For Arduino IDE version 1.0.5 and above):
 
-1. Download the library as an Arduino IDE compatible zip file at https://github.com/SandboxElectronics/Audio_Shield/blob/master/Audio_Shield.zip?raw=true. (Do not unzip it. leave it as is)
+1. Download the library as an Arduino IDE compatible zip file at 
+https://codeload.github.com/SandboxElectronics/UART_Bridge/zip/master (Do not unzip it. leave it as is)
 
 2. In the Arduino IDE, select Sketch -> Import Library -> Add Library
 
